@@ -1,0 +1,11 @@
+{    
+    "/current/*": {
+      "target": "https://xkcd.com/",
+      "secure": false,
+      "pathRewrite": {       
+        "^/current": "/info.0.json",
+        "^/id": "/info.0.json"
+      },
+        "changeOrigin": true
+      }      
+  }

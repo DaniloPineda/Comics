@@ -1,0 +1,7 @@
+<div class="comic-card" *ngIf="_comic.title">
+    <div class="card-title">{{_comic.title}}</div>
+    <img class="" [src]="_comic.img"/>
+    <div class="card-title">{{_comic.rate}}</div>
+    <input type="number" [(ngModel)]="_comic.rate"  #it="ngModel"  />
+    <button (click)="rateComic()" >Rate</button>
+</div>
