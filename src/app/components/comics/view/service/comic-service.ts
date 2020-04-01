@@ -21,7 +21,7 @@ export class ComicService{
   getById(id: string): Observable<ComicModel> {
     var url = `${this._baseUri}/${id}/info.0.json`;
     var url2 = `/${id}/id`;
-    return this.http.get<ComicModel>(url2);    
+    return this.http.get<ComicModel>(url);    
   }
 
 

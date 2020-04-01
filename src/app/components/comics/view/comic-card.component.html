@@ -1,7 +1,9 @@
-<div class="comic-card" *ngIf="_comic.title">
-    <div class="card-title">{{_comic.title}}</div>
-    <img class="" [src]="_comic.img"/>
-    <div class="card-title">{{_comic.rate}}</div>
-    <input type="number" [(ngModel)]="_comic.rate"  #it="ngModel"  />
-    <button (click)="rateComic()" >Rate</button>
+<div *ngIf="_comic.title">
+    <div class="custom-card">
+        <img class="img-fluid" [src]="_comic.img"/>
+    </div>
+    <div class="fix-rating list-group-item">        
+        <h3>{{_comic.safe_title}}</h3>
+        <comic-rate (emitRate)="getRating($event)"></comic-rate>
+    </div>    
 </div>

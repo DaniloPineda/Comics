@@ -14,7 +14,9 @@ export class ComicCardComponent implements OnInit{
 
     editComicForm: FormGroup;
     _comic : ComicModel;
+    rate:number;
     @Input() comicId:number;
+
 
     constructor(private comicService: ComicService, 
                 private toastr: ToastrService, 
@@ -31,6 +33,10 @@ export class ComicCardComponent implements OnInit{
         this.editComicForm = this.formBuilder.group({
             rating: new FormControl(""),
             });
+    }
+
+    getRating(rate:number){
+        this._comic.rate = rate;
     }
 
     getCurrentComic(){
