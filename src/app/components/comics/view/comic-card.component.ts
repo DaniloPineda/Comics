@@ -15,8 +15,8 @@ export class ComicCardComponent implements OnInit{
     editComicForm: FormGroup;
     _comic : ComicModel;
     rate:number;
-    @Input() comicId:number;
 
+    @Input() comicId:number;
 
     constructor(private comicService: ComicService, 
                 private toastr: ToastrService, 
@@ -25,14 +25,10 @@ export class ComicCardComponent implements OnInit{
                 
     ngOnInit(){
         this._comic = new ComicModel();
-        if (this.comicId != null)
-            this.getComic(this.comicId);        
-        else
-            this.getCurrentComic();
-
+        this.getComic();
         this.editComicForm = this.formBuilder.group({
             rating: new FormControl(""),
-            });
+        });
     }
 
     getRating(rate:number){
@@ -43,18 +39,23 @@ export class ComicCardComponent implements OnInit{
         this.comicService.getCurrent().subscribe(c =>{
             this._comic = c;
         },
-        error =>{
-            this.toastr.error("Error obteniendo cómic", error);
+        () =>{
+            this.toastr.error(`Comic con id ${this.comicId} no existe`,"Error obteniendo cómic");
         })
     }
 
-    getComic(num){
-        this.comicService.getById(num).subscribe(c =>{
-            this._comic = c;
-        },
-        error =>{
-            this.toastr.error(error.message,"Error obteniendo cómic");
-        })
+    getComic(){        
+        if (this.comicId != null && this.comicId > 0)
+        {
+            this.comicService.getById(this.comicId.toString()).subscribe(c =>{
+                this._comic = c;
+            },
+            () =>{
+                this.toastr.error(`Comic con id ${this.comicId} no existe`, "Error obteniendo cómic");
+            })
+        }    
+        else
+            this.getCurrentComic();
+        
     }
-
 }

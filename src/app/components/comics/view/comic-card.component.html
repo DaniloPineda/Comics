@@ -1,9 +1,20 @@
 <div *ngIf="_comic.title">
-    <div class="custom-img">
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm mb-4  wdt-20">
+        <div class="input-group align-center">
+          <input type="search" [(ngModel)]="comicId" placeholder="Buscar Comics por Id" 
+          aria-describedby="button-addon1" class="form-control border-0 bg-light"
+          (keyup.enter)="getComic()" >
+          <div class="input-group-append">
+            <button id="button-addon1" (click)="getComic()" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+
+    <div class="align-center">
         <img [src]="_comic.img"/>
     </div>
     <div class="fix-rating list-group-item">        
         <h3>{{_comic.safe_title}}</h3>
-        <comic-rate (emitRate)="getRating($event)"></comic-rate>        
+        <comic-rate [rate]="_comic.rate" (emitRate)="getRating($event)"></comic-rate>        
     </div>    
 </div>

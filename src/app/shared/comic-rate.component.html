@@ -1,5 +1,4 @@
 <div>
-
   <ng-template #comic let-fill="fill">
     <span class="star"
       [class.bad]="checkBad(fill)"
@@ -10,7 +9,6 @@
         </svg>
     </span>
   </ng-template>
-
 
   <ngb-rating (rateChange)="onSelected($event)" [starTemplate]="comic"
     (hover)="onHover($event)" (leave)="hovered=0" 

@@ -10,7 +10,7 @@ export class ComicModel{
     img: string;
     title: string;
     day: string;
-    rate? : number;
+    rate : number = 0;
 
     getDay():number{
         return this.convertToNumber(this.day);

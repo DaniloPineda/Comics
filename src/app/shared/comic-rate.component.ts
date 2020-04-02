@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter} from '@angular/core';
+import {Component, Output, EventEmitter, OnInit, Input} from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -25,18 +25,23 @@ import { ToastrService } from 'ngx-toastr';
   }
 `]
 })
-export class ComicRate {  
+export class ComicRate implements OnInit {  
   constructor(private toastr: ToastrService ){
 
   }
+
   @Output() emitRate = new EventEmitter();
+  @Input() rate:number=0;
   hovered = 0;
-  rate:number=0;
-  readonly = false;
+  readonly = false;  
+
   
+  ngOnInit(){
+    this.rate = 0;
+  }
+
   onSelected(rate):void{
     this.rate = rate;
-    //this.toastr.success(rate.toString(),"Se calificó el cómic");
     this.emitRate.emit(rate);
   }
   
