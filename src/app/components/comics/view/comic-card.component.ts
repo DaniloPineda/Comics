@@ -36,7 +36,7 @@ export class ComicCardComponent implements OnInit{
     }
 
     getRating(rate:number){
-        this._comic.rate = rate;
+        this._comic.rate = rate;        
     }
 
     getCurrentComic(){
@@ -55,10 +55,6 @@ export class ComicCardComponent implements OnInit{
         error =>{
             this.toastr.error(error.message,"Error obteniendo cómic");
         })
-    }
-
-    rateComic(){
-        this.toastr.success(this._comic.rate.toString(),"Se calificó el cómic");
     }
 
 }

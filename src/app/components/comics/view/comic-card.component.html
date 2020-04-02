@@ -1,9 +1,9 @@
 <div *ngIf="_comic.title">
-    <div class="custom-card">
-        <img class="img-fluid" [src]="_comic.img"/>
+    <div class="custom-img">
+        <img [src]="_comic.img"/>
     </div>
     <div class="fix-rating list-group-item">        
         <h3>{{_comic.safe_title}}</h3>
-        <comic-rate (emitRate)="getRating($event)"></comic-rate>
+        <comic-rate (emitRate)="getRating($event)"></comic-rate>        
     </div>    
 </div>

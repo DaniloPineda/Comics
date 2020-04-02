@@ -1,4 +1,5 @@
 import {Component, Output, EventEmitter} from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'comic-rate',
@@ -25,13 +26,18 @@ import {Component, Output, EventEmitter} from '@angular/core';
 `]
 })
 export class ComicRate {  
-  @Output() emitRate = new EventEmitter<number>();
+  constructor(private toastr: ToastrService ){
+
+  }
+  @Output() emitRate = new EventEmitter();
   hovered = 0;
   rate:number=0;
   readonly = false;
   
-  onSelected():void{
-    this.emitRate.emit(this.rate)
+  onSelected(rate):void{
+    this.rate = rate;
+    //this.toastr.success(rate.toString(),"Se calificó el cómic");
+    this.emitRate.emit(rate);
   }
   
   checkBad(fill){
