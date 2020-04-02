@@ -24,6 +24,7 @@ export class ComicCardComponent implements OnInit{
                 }
                 
     ngOnInit(){
+        this.comicId = Math.floor(Math.random() * Math.floor(2286));
         this._comic = new ComicModel();
         this.getComic();
         this.editComicForm = this.formBuilder.group({

@@ -3,7 +3,7 @@
         <div class="input-group align-center">
           <input type="search" [(ngModel)]="comicId" placeholder="Buscar Comics por Id" 
           aria-describedby="button-addon1" class="form-control border-0 bg-light"
-          (keyup.enter)="getComic()" >
+          (keyup.enter)="getComic()" type="number">
           <div class="input-group-append">
             <button id="button-addon1" (click)="getComic()" class="btn btn-link text-primary"><i class="fa fa-search"></i></button>
           </div>
