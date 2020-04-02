@@ -1,7 +1,8 @@
 # ComicsRatingAngular
 
 ## Requerimientos
-  * Tener instalada la última versión de node package manager    
+  * Tener instalada la última versión de node package manager.
+  * Clonar proyecto y descargar la rama: dev
 
 ## Correr Aplicación
   Se deben instalar todos los paquetes de node con el comando    
